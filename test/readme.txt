@@ -4,6 +4,13 @@ readme.txt 파일입니다.
 
 DB 연동을 테스트하기 위해 아래와 같이 테이블을 만들고, 간단하게 데이터베이스에서 읽어오는 것만 확인해봅니다.
 
+
+/* */
+//
+;
+#
+-- comment
+
 create  table first_table (
     idx     int(10) auto_increment,
     id      char(20) UNIQUE not null,
