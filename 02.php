@@ -89,7 +89,7 @@
                 <div class="col"><?php echo $data["source"]?></div>
                 <div class="col"><?php echo $data["status"]?></div>
             </div>
-           <?
+           <?php
             $data = mysqli_fetch_array($result);
         }
 
