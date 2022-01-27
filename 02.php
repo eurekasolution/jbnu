@@ -54,13 +54,14 @@
         */
 
 
-        $sql = "select * from first_table ";
+        //$sql = "select * from first_table ";
+        $sql = "select * from covid order by idx asc";
         $result = mysqli_query($conn, $sql);
         $data = mysqli_fetch_array($result);
         while($data)
         {
-            echo "id = ". $data["name"] ." age = ".$data["age"]."<br>";
-
+            // echo "id = ". $data["name"] ." age = ".$data["age"]."<br>";
+            echo $data["source"] . "->" . $data["target"] . "<br>";
             $data = mysqli_fetch_array($result);
         }
 
