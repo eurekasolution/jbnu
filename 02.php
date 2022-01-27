@@ -28,6 +28,7 @@
 
 	</head>
 <body>
+    <div class="container">
 
     bootstrap 용 기본 HTML 골격파일입니다. <br>
 
@@ -58,16 +59,44 @@
         $sql = "select * from covid order by idx asc";
         $result = mysqli_query($conn, $sql);
         $data = mysqli_fetch_array($result);
+
+        // 순서, 타겟, 원인, 나이.....
+    ?>
+    
+        <div class="row rowLine">
+            <div class="col">순서</div>
+            <div class="col">타겟</div>
+            <div class="col">no</div>
+            <div class="col">day</div>
+            <div class="col">ages</div>
+            <div class="col">area</div>
+            <div class="col">source</div>
+            <div class="col">status</div>
+        </div>
+
+    <?php
+
         while($data)
         {
-            // echo "id = ". $data["name"] ." age = ".$data["age"]."<br>";
-            echo $data["source"] . "->" . $data["target"] . "<br>";
+           ?>
+            <div class="row rowLine">
+                <div class="col"><?php echo $data["idx"]?></div>
+                <div class="col"><?php echo $data["target"]?></div>
+                <div class="col"><?php echo $data["no"]?></div>
+                <div class="col"><?php echo $data["day"]?></div>
+                <div class="col"><?php echo $data["ages"]?></div>
+                <div class="col"><?php echo $data["area"]?></div>
+                <div class="col"><?php echo $data["source"]?></div>
+                <div class="col"><?php echo $data["status"]?></div>
+            </div>
+           <?
             $data = mysqli_fetch_array($result);
         }
 
 
     ?>
 
+    </div>  <!-- container -->
 </body>
 </html>
 
