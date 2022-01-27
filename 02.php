@@ -59,7 +59,8 @@
         $data = mysqli_fetch_array($result);
         while($data)
         {
-            echo "yes data <br>";
+            echo "id = ". $data["name"] ." age = ".$data["age"]."<br>";
+
             $data = mysqli_fetch_array($result);
         }
 
