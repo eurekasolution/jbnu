@@ -71,7 +71,7 @@
             <div class="col">ages</div>
             <div class="col">area</div>
             <div class="col">source</div>
-            <div class="col">status</div>
+            <div class="col">status</div> 
         </div>
 
     <?php
