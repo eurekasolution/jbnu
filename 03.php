@@ -50,6 +50,25 @@
             ";
 
         }
+
+        // 삭제
+        if(isset($mode) and isset($idx) and $mode == "delete")
+        {
+            $sql = "DELETE FROM mytable WHERE idx='$idx' ";
+            $result = mysqli_query($conn, $sql);
+            if($result)
+                $msg = "DELETE OK";
+            else
+                $msg = "DELETE FAIL";
+
+            echo "
+            <script>
+                alert('$msg');
+                location.href='03.php';
+            </script>
+            ";
+        }
+
     ?>
 
 
@@ -78,13 +97,28 @@
     <?php
 
         //$sql = "select * from first_table ";
-        $sql = "select * from mytable order by idx asc";
+        $sql = "select * from mytable order by name asc";
         $result = mysqli_query($conn, $sql);
         $data = mysqli_fetch_array($result);
 
         // 순서, 타겟, 원인, 나이.....
     ?>
     
+        <script>
+            function confirmDelete(pidx)
+            {
+                //alert(pidx); // 확인버튼만 존재
+                if(confirm('정말 삭제하시겠습니까?'))
+                {
+                    location.href='03.php?mode=delete&idx='+pidx;
+                }else
+                {
+                    // 취소
+                }
+            }
+        </script>
+
+
         <div class="row rowLine">
             <div class="col">순서</div>
             <div class="col">아이디</div>
@@ -104,12 +138,15 @@
                 <div class="col"><?php echo $data["id"]?></div>
                 <div class="col"><?php echo $data["name"]?></div>
                 <div class="col"><?php echo $data["age"]?></div>
-                <div class="col">비고</div>
+                <div class="col">
+                    <button type="button" class="btn btn-danger btn-sm" onClick="confirmDelete(<?php echo $data["idx"]?>)">삭제</button>
+
+                </div>
             </div>
            <?php
             $data = mysqli_fetch_array($result);
         }
-
+    
 
     ?>
 
