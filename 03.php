@@ -133,23 +133,26 @@
         {
             //http://localhost/03.php
            ?>
-            <div class="row rowLine">
-                <div class="col"><?php echo $data["idx"]?></div>
-                <div class="col">
-                    <input type="text" name="id" class="form-control" value="<?php echo $data["id"]?>">
-                </div>
-                <div class="col">
-                    <input type="text" name="name" class="form-control" value="<?php echo $data["name"]?>">
-                </div>
-                <div class="col">
-                    <input type="text" name="age" class="form-control" value="<?php echo $data["age"]?>">
-                </div>
-               
-                <div class="col">
-                    <button type="button" class="btn btn-danger btn-sm" onClick="confirmDelete(<?php echo $data["idx"]?>)">삭제</button>
+            <form method="post" action="03.php?mode=update&idx=<?php echo  $data["idx"]?>">
+                <div class="row rowLine">
+                    <div class="col"><?php echo $data["idx"]?></div>
+                    <div class="col">
+                        <input type="text" name="id" class="form-control" value="<?php echo $data["id"]?>">
+                    </div>
+                    <div class="col">
+                        <input type="text" name="name" class="form-control" value="<?php echo $data["name"]?>">
+                    </div>
+                    <div class="col">
+                        <input type="text" name="age" class="form-control" value="<?php echo $data["age"]?>">
+                    </div>
+                
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary btn-sm">수정</button>
+                        <button type="button" class="btn btn-danger btn-sm" onClick="confirmDelete(<?php echo $data["idx"]?>)">삭제</button>
 
+                    </div>
                 </div>
-            </div>
+            </form>
            <?php
             $data = mysqli_fetch_array($result);
         }
