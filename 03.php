@@ -30,19 +30,43 @@
 <body>
     <div class="container">
 
+    <?php
+        if(isset($mode) and $mode == "insert")
+        {
+            echo "name = $name , id = $id, age = $age <br>";
+
+            $sql = "insert into mytable (id, name, age) values ('$id', '$name', '$age')";
+            $result = mysqli_query($conn, $sql);
+            if($result)
+                $msg = "INSERT OK";
+            else
+                $msg = "INSERT FAIL";
+
+            echo "
+            <script>
+                alert('$msg');
+                location.href='03.php';
+            </script>
+            ";
+
+        }
+    ?>
+
+
+
     DB Query 연습 <br>
 
-    <form>
+    <form method="post" action="03.php?mode=insert">
     <div class="row rowLine">
         <div class="col">아이디</div>
-        <div class="col"><input type="text" name="id" class="form-control" placeholder="아이디"></div>
+        <div class="col"><input type="text" name="id" class="form-control" placeholder="아이디" required></div>
         <div class="col">이름</div>
-        <div class="col"><input type="text" name="name" class="form-control" placeholder="실명입력"></div>
+        <div class="col"><input type="text" name="name" class="form-control" placeholder="실명입력"  required></div>
     </div>
 
     <div class="row rowLine">
         <div class="col">나이</div>
-        <div class="col"><input type="text" name="age" class="form-control" placeholder="나이"></div>
+        <div class="col"><input type="text" name="age" class="form-control" placeholder="나이"  required></div>
         <div class="col">
             <button type="submit" class="btn btn-primary">등록</button>
         </div>
