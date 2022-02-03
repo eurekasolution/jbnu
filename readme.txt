@@ -100,6 +100,18 @@ Search
     부분검색..
     select * from mytable where name like '%김%' ;
 
+UPDATE
+
+    UPDATE 테이블명 SET 필드1='새값1', 필드2='새값2', ... WHERE 조건;
+
+    update mytable set age='30' where idx='3';
+    select * from mytable;
+
+Delete
+    DELETE FROM TABLE_NAME WHERE 조건;
+
+    delete from mytable where idx='3';
+    
 
 
 
