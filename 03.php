@@ -129,7 +129,7 @@
                 //alert(pidx); // 확인버튼만 존재
                 if(confirm('정말 삭제하시겠습니까?'))
                 {
-                    location.href='03.php?mode=delete&idx='+pidx;
+                    location.href='<?php echo $PHP_SELF ?>?mode=delete&idx='+pidx;
                 }else
                 {
                     // 취소
