@@ -45,7 +45,7 @@
             echo "
             <script>
                 alert('$msg');
-                location.href='03.php';
+                location.href='$PHP_SELF';
             </script>
             ";
 
@@ -64,10 +64,29 @@
             echo "
             <script>
                 alert('$msg');
-                location.href='03.php';
+                location.href='$PHP_SELF';
             </script>
             ";
         }
+
+        // 수정(갱신)
+        if(isset($mode) and isset($idx) and $mode == "update")
+        {
+            $sql = "UPDATE mytable SET id='$id', name='$name', age='$age' WHERE idx='$idx' ";
+            $result = mysqli_query($conn, $sql);
+            if($result)
+                $msg = "UPDATE OK";
+            else
+                $msg = "UPDATE FAIL";
+
+            echo "
+            <script>
+                alert('$msg');
+                location.href='$PHP_SELF';
+            </script>
+            ";
+        }
+
 
     ?>
 
@@ -75,7 +94,7 @@
 
     DB Query 연습 <br>
 
-    <form method="post" action="03.php?mode=insert">
+    <form method="post" action="<?php echo $PHP_SELF ?>?mode=insert">
     <div class="row rowLine">
         <div class="col">아이디</div>
         <div class="col"><input type="text" name="id" class="form-control" placeholder="아이디" required></div>
@@ -133,7 +152,7 @@
         {
             //http://localhost/03.php
            ?>
-            <form method="post" action="03.php?mode=update&idx=<?php echo  $data["idx"]?>">
+            <form method="post" action="<?php echo $PHP_SELF ?>?mode=update&idx=<?php echo  $data["idx"]?>">
                 <div class="row rowLine">
                     <div class="col"><?php echo $data["idx"]?></div>
                     <div class="col">
