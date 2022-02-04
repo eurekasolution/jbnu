@@ -141,7 +141,7 @@
                 $age = $splitAge[$cnt];
 
                //echo "인원".$data["total"]." <br>";
-                echo "['$age 세 미만', $total ]";
+                echo "['$age 세 미만', $total ],";
 
                 $cnt ++;
             }
