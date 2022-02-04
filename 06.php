@@ -30,16 +30,21 @@
 <body>
     <div class="container">
 
- 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['sankey']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'From');
+        data.addColumn('string', 'To');
+        data.addColumn('number', 'Weight');
+        data.addRows([
 
-        var data = google.visualization.arrayToDataTable([
-        ['연령(이하)', '명'],
+
+        ]) 
+
        
         <?php
             $ages = "0,10,20,30,40,50,60,70,80,90,100";
@@ -70,18 +75,18 @@
         ]);
 
         var options = {
-        title: '연령별 회원 분포'
+          width: 600,
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
         chart.draw(data, options);
-        }
+      }
     </script>
 
     <div class="row rowLine">
         <div class="col">
-            <div id="piechart" style="width: 900px; height: 500px;"></div>            
+            <div id="sankey_basic" style="width: 900px; height: 1000px;"></div>            
         </div>
     </div>
 
