@@ -122,7 +122,7 @@
         var data = google.visualization.arrayToDataTable([
         ['연령(이하)', '명'],
        
-        <?
+        <?php
             $ages = "0,10,20,30,40,50,60,70,80,90,100";
             $splitAge = explode(",", $ages); // splitAge[0] = 10, [1]=20, [2] = 30..
             $cnt = 1;
