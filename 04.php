@@ -131,6 +131,7 @@
                 //echo "$splitAge[$cnt] <br>";
                 $prev = $cnt -1;
 
+                // 10
                 $sql = "select count(*) as total from mytable where age>='$splitAge[$prev]' and  age<'$splitAge[$cnt]' ";
                 //echo "$sql <br>";
                 $result = mysqli_query($conn, $sql);
@@ -140,7 +141,7 @@
                 $age = $splitAge[$cnt];
 
                //echo "인원".$data["total"]." <br>";
-                echo "['$age 대', $total ],";
+                echo "['$age 세 미만', $total ],";
 
                 $cnt ++;
             }
