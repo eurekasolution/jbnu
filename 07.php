@@ -66,7 +66,7 @@
         </div>
 
         <div class="row rowLine">
-            <div class="col">사용자 입력 테스트</div>
+            <div class="col"> <span class="material-icons">settings</span> 사용자 입력 테스트</div>
         </div>
 
         <div class="row rowLine">
@@ -100,7 +100,19 @@
         <div class="row rowLine">
             <div class="col-2">textarea</div>
             <div class="col">
-                <textarea name="memo" class="form-control" rows="10">1111</textarea.
+                <textarea name="memo" class="form-control" rows="10">1111</textarea>
+            </div>
+        </div>
+
+        <div class="row rowLine">
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">실행</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-danger btn-sm">danger</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-success form-control"> <span class="material-icons">settings</span> success</button>
             </div>
         </div>
 
