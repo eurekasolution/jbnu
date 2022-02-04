@@ -112,25 +112,64 @@
 
     </form>
 
-        사용자 분포.. 나이.. 0~9, 10~19, 20~29...
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+        ['연령(이하)', '명'],
+       
+        <?
+            $ages = "0,10,20,30,40,50,60,70,80,90,100";
+            $splitAge = explode(",", $ages); // splitAge[0] = 10, [1]=20, [2] = 30..
+            $cnt = 1;
+            while(isset($splitAge[$cnt]) and $splitAge[$cnt])
+            {
+                //echo "$splitAge[$cnt] <br>";
+                $prev = $cnt -1;
+
+                $sql = "select count(*) as total from mytable where age>='$splitAge[$prev]' and  age<'$splitAge[$cnt]' ";
+                //echo "$sql <br>";
+                $result = mysqli_query($conn, $sql);
+                $data = mysqli_fetch_array($result);
+
+                $total = $data["total"];
+                $age = $splitAge[$cnt];
+
+               //echo "인원".$data["total"]." <br>";
+                echo "['$age 대', $total ],";
+
+                $cnt ++;
+            }
+        ?>
+
+
+        ]);
+
+        var options = {
+        title: '연령별 회원 분포'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+        }
+    </script>
+
+    <div class="row rowLine">
+        <div class="col">
+            <div id="piechart" style="width: 900px; height: 500px;"></div>            
+        </div>
+    </div>
 
 
     <?php
         // 연령별 분포를 데이터베이스에서 가져오기..
 
-        $ages = "0,10,20,30,40,50,60,70,80,90,100";
-        $splitAge = explode(",", $ages); // splitAge[0] = 10, [1]=20, [2] = 30..
-        $cnt = 1;
-        while(isset($splitAge[$cnt]) and $splitAge[$cnt])
-        {
-            echo "$splitAge[$cnt] <br>";
-            $prev = $cnt -1;
 
-            $sql = "select * from mytable where age>='$splitAge[$prev]' and  age<'$splitAge[$cnt]' ";
-            echo "$sql <br>";
-
-            $cnt ++;
-        }
 
 
 
