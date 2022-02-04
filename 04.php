@@ -112,8 +112,28 @@
 
     </form>
 
+        사용자 분포.. 나이.. 0~9, 10~19, 20~29...
+
 
     <?php
+        // 연령별 분포를 데이터베이스에서 가져오기..
+
+        $ages = "0,10,20,30,40,50,60,70,80,90,100";
+        $splitAge = explode(",", $ages); // splitAge[0] = 10, [1]=20, [2] = 30..
+        $cnt = 1;
+        while(isset($splitAge[$cnt]) and $splitAge[$cnt])
+        {
+            echo "$splitAge[$cnt] <br>";
+            $prev = $cnt -1;
+
+            $sql = "select * from mytable where age>='$splitAge[$prev]' and  age<'$splitAge[$cnt]' ";
+            echo "$sql <br>";
+
+            $cnt ++;
+        }
+
+
+
 
         //$sql = "select * from first_table ";
         $sql = "select * from mytable order by name asc";
