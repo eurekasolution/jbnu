@@ -41,38 +41,26 @@
         data.addColumn('string', 'To');
         data.addColumn('number', 'Weight');
         data.addRows([
-
-
-        ]) 
-
-       
+        
         <?php
-            $ages = "0,10,20,30,40,50,60,70,80,90,100";
-            $splitAge = explode(",", $ages); // splitAge[0] = 10, [1]=20, [2] = 30..
-            $cnt = 1;
-            while(isset($splitAge[$cnt]) and $splitAge[$cnt])
+            $sql = "select * from covid";
+            $result = mysqli_query($conn, $sql);
+            $data = mysqli_fetch_array($result);
+
+            while($data)
             {
-                //echo "$splitAge[$cnt] <br>";
-                $prev = $cnt -1;
+                // [ '소스', '타겟', 1],
+                $src = $data["source"];
+                $tgt = $data["target"];
 
-                // 10
-                $sql = "select count(*) as total from mytable where age>='$splitAge[$prev]' and  age<'$splitAge[$cnt]' ";
-                //echo "$sql <br>";
-                $result = mysqli_query($conn, $sql);
+                echo "[ '$src', '$tgt', 1] ,";
                 $data = mysqli_fetch_array($result);
-
-                $total = $data["total"];
-                $age = $splitAge[$cnt];
-
-               //echo "인원".$data["total"]." <br>";
-                echo "['$age 세 미만', $total ],";
-
-                $cnt ++;
             }
         ?>
 
+        ]); 
 
-        ]);
+
 
         var options = {
           width: 600,
