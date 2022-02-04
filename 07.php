@@ -72,7 +72,35 @@
         <div class="row rowLine">
             <div class="col-2">text</div>
             <div class="col">
-                <input type="text" name="id">
+                <input type="text" name="id" class="form-control">
+            </div>
+        </div>
+
+        <div class="row rowLine">
+            <div class="col-2">password</div>
+            <div class="col">
+                <input type="password" name="pass" class="form-control">
+            </div>
+        </div>
+
+        <div class="row rowLine">
+            <div class="col-2">select</div>
+            <div class="col">
+                <select name="local" class="form-control">
+                    <option value="">=== 선택 ===</option>
+                    <option value="1" selected>서울</option>
+                    <option value="2">경기</option>
+                    <option value="3">충청</option>
+                    <option value="4">기타</option>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="row rowLine">
+            <div class="col-2">textarea</div>
+            <div class="col">
+                <textarea name="memo" class="form-control" rows="10">1111</textarea.
             </div>
         </div>
 
