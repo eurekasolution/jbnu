@@ -53,7 +53,7 @@
                 $src = $data["source"];
                 $tgt = $data["target"];
 
-                echo "[ '$src', '$tgt', 1] ,";
+                echo "[ '$src', '$tgt', 5] ,";
                 $data = mysqli_fetch_array($result);
             }
         ?>
@@ -62,9 +62,22 @@
 
 
 
+        var colors = ['#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f',
+                  '#cab2d6', '#ffff99', '#1f78b4', '#33a02c'];
+
         var options = {
-          width: 600,
+        height: 4000,
+            //sankey: {
+            //    node: {
+            //    colors: colors
+            //    },
+            //    link: {
+            //    colorMode: 'gradient',
+            //    colors: colors
+            //    }
+            //}
         };
+
 
         // Instantiates and draws our chart, passing in some options.
         var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
@@ -74,7 +87,7 @@
 
     <div class="row rowLine">
         <div class="col">
-            <div id="sankey_basic" style="width: 900px; height: 1000px;"></div>            
+            <div id="sankey_basic" style="width: 900px; height: 4000px;"></div>            
         </div>
     </div>
 
