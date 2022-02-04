@@ -1,7 +1,16 @@
+create table covid (
+    idx     int(10) auto_increment,
 
-1. 탭 => ','');
-2. $ => ');
-3. ^ => insert ...
+    target  char(20),
+    no      char(20),
+    day     date,
+    ages    int(10) default '0',
+    area    char(20),
+    source  char(20),
+    status  char(40),
+
+    primary key(idx)
+);
 
 insert into covid (target, no, day, ages, area, source, status) values ('대전','질병청','확진일자','연령대','관할주거주지','접촉력','조치사항');
 insert into covid (target, no, day, ages, area, source, status) values ('1272 ','102545','2021-03-29','20','대덕구','1268','격리해제');
