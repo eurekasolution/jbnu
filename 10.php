@@ -33,13 +33,31 @@
                 var tc = 20;
                 var td = 30;
 
-                
+                var xa = 0;
+                var ya = 0;
+                var xb = 400;
+                var yb = 0;
+                var xc = 0;
+                var yc = 400;
+                var xd = 400;
+                var yd = 400;
+
+                var lena = 0;
+                var lenb = 0;
+                var lenc = 0;
+                var lend = 0;
+
+                var lenTotal = 0;
+
+
+
+
         </script>
 
 	</head>
 <body>
     <div class="container">
-
+        <canvas id="canvas" width="400" height="400" style="border:solid 1px #000000"></canvas>
 
     </div>  <!-- container -->
 </body>
