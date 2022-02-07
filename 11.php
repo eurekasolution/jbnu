@@ -21,7 +21,7 @@
 		var ftc = 0.0;
 		var ftd = 0.0;
 
-		var extpected = 0.0;
+		var expected = 0.0;
 
 		var xa = 0;
 		var ya = 0;
@@ -40,6 +40,8 @@
 		var lenc = 0;
 		var lend = 0;
 
+        var gap = 5;
+
 		var lenTotal = 0;
 
 		function doCanvas()
@@ -49,14 +51,15 @@
 
 			
 
-			for(var i=1; i<400; i++)
+			for(var i=1; i<400; i = i + gap)
 			{
-				for(var j=1; j<400; j++)
+				for(var j=1; j<400; j = j + gap)
 				{
-					lena = Math.sqrt( (i - xa)* (i-xa) + (j -ya) * (j-ya));
-					lenb = Math.sqrt( (i - xb)* (i-xb) + (j -yb) * (j-yb));
-					lenc = Math.sqrt( (i - xc)* (i-xc) + (j -yc) * (j-yc));
-					lend = Math.sqrt( (i - xd)* (i-xd) + (j -yd) * (j-yd));
+					lena = Math.sqrt( (i - xa)* (i-xa) + (j -ya) * (j-ya)); //1
+					lenb = Math.sqrt( (i - xb)* (i-xb) + (j -yb) * (j-yb)); // 2
+					lenc = Math.sqrt( (i - xc)* (i-xc) + (j -yc) * (j-yc)); // 2
+					lend = Math.sqrt( (i - xd)* (i-xd) + (j -yd) * (j-yd)); // 3
+                    // 1 , 2, 2, 3 = 8
 
 		
 					lenTotal = lena + lenb + lenc + lend;
@@ -75,7 +78,7 @@
 					var a3 = (lenc / (lena + lenb + lenc + lend)) * tc;
 					var a4 = (lend / (lena + lenb + lenc + lend)) * td;
 
-					expected = (a1 + a2 + a3 + a4);
+					expected = (a1 + a2 + a3 + a4); // 23.4
 					var testInt = Math.floor(expected);
 
 					if(i == 300 && j == 300)
@@ -84,7 +87,7 @@
 
 
 					}				
-					switch(Math.floor(expected))
+					switch(Math.floor(expected)) // 23.4 -> 23
 					{
 						case 10:
 							context.fillStyle = 'rgb(0,0,255)';
@@ -153,15 +156,12 @@
 							break;
 					}					
 					//context.fillStyle = 'rgb(255,0,0)';
-					context.fillRect(i, j, 1, 1);
+					context.fillRect(i, j, gap, gap);
 					//context.stroke()
 
 				}
 			}
 		}
-
-
-
 	</script>
 
  </head>
