@@ -1,5 +1,28 @@
 readme.txt 파일입니다.
 
+
+오늘은 IoT 시각화를 위한 시뮬레이션을 이용해
+시각화하는 방법에 대해 공부할 예정입니다.
+필요에 따라 BootStrap 추가 설명을 드리겠습니다.
+
+
+2022-02-07 첫번째 할일..
+데이터베이스 테이블 만들기.
+
+create table sensor_table (
+    idx int(10) auto_increment,
+
+    temp    float default '0.0',
+    hum     float default '0.0',
+
+
+    time    datetime,
+
+    primary key(idx)
+
+);
+
+
 notebook git test
 
 1. 홈페이지와 DB 연결하는 코드는 배포를 하고, 설명만 하면 될 것 같습니다.
