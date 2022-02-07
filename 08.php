@@ -37,7 +37,7 @@
         // php.net 
         // 12.3
 
-        $temp = rand(100, 300) / 10;
+        $temp = rand(600, 700) / 10;
         $hum =  rand(300, 700)/ 10;
 
         echo "temp = $temp , hum = $hum<br>";
