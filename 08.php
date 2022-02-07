@@ -30,7 +30,21 @@
 <body>
     <div class="container">
 
+    할 일.. 3초마다 랜덤값을 생성... 디비에 저장..
 
+    <?php
+      if(isset($counter))
+        $counter = $counter + 1;  
+      else
+        $counter = 1;
+    ?>
+
+
+    <script>
+            setTimeout(function() {
+                location.href='<?php echo $PHP_SELF?>?counter=<?php echo $counter?>';
+            }, 3000 );
+    </script>
 
     </div>  <!-- container -->
 </body>
