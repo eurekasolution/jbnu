@@ -26,38 +26,20 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
+
+        <script>
+                var ta = Math.random() * 20 + 10;
+                var tb = 15;
+                var tc = 20;
+                var td = 30;
+
+                
+        </script>
+
 	</head>
 <body>
     <div class="container">
 
-    할 일.. 3초마다 랜덤값을 생성... 디비에 저장..
-
-
-    <?php
-        // php.net 
-        // 12.3
-
-        $temp = rand(600, 620) / 10;
-        $hum =  rand(200, 207)/ 10;
-
-        echo "temp = $temp , hum = $hum<br>";
-
-        $sql = "INSERT INTO sensor_table (temp, hum, time) VALUES ('$temp', '$hum', now())";
-        $result = mysqli_query($conn, $sql);
-
-
-      if(isset($counter))
-        $counter = $counter + 1;  
-      else
-        $counter = 1;
-    ?>
-
-
-    <script>
-            setTimeout(function() {
-                location.href='<?php echo $PHP_SELF?>?counter=<?php echo $counter?>';
-            }, 3000 );
-    </script>
 
     </div>  <!-- container -->
 </body>
