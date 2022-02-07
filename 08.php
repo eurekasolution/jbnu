@@ -32,7 +32,17 @@
 
     할 일.. 3초마다 랜덤값을 생성... 디비에 저장..
 
+
     <?php
+        // php.net 
+        // 12.3
+
+        $temp = rand(100, 300) / 10;
+        $hum =  rand(300, 700)/ 10;
+
+        echo "temp = $temp , hum = $hum<br>";
+
+
       if(isset($counter))
         $counter = $counter + 1;  
       else
