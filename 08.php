@@ -42,6 +42,9 @@
 
         echo "temp = $temp , hum = $hum<br>";
 
+        $sql = "INSERT INTO sensor_table (temp, hum, time) VALUES ('$temp', '$hum', now())";
+        $result = mysqli_query($conn, $sql);
+
 
       if(isset($counter))
         $counter = $counter + 1;  
