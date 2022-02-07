@@ -40,7 +40,19 @@
           ['Time', '온도', '습도'],
 
             <?php
-                $sql = "SELECT * FROM sensor_table order by idx asc";
+                // 전체 데이터 갯수 파악
+                $sql = "select count(*) as total from sensor_table";
+                $result = mysqli_query($conn, $sql);
+                $totalData = mysqli_fetch_array($result);
+
+                $total = $totalData["total"];
+                $showCount = 30;
+                $start = $total - $showCount;
+
+                // 0, 1, 2, 3....99
+
+
+                $sql = "SELECT * FROM sensor_table order by idx asc limit $start, $showCount";
                 $result = mysqli_query($conn, $sql);
                 $sensor = mysqli_fetch_array($result);
 

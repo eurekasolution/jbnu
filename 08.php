@@ -38,7 +38,7 @@
         // 12.3
 
         $temp = rand(600, 700) / 10;
-        $hum =  rand(300, 700)/ 10;
+        $hum =  rand(300, 400)/ 10;
 
         echo "temp = $temp , hum = $hum<br>";
 
