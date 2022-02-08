@@ -151,7 +151,7 @@
 
             echo "
                 <div class='col'>
-                    <img src='$imageInfo[0]' class='img-fluid' onClick=\"detailWindow('$splitModelNo[0]')\" style='cursor:pointer'><br>
+                    <img src='$imageInfo[0]' class='img-fluid rounded' onClick=\"detailWindow('$splitModelNo[0]')\" style='cursor:pointer'><br>
                     제품번호 : $splitModelNo[0]<br>
                     가격 : $splitRealPrice[0]<br>
                     $printDeliverFee
