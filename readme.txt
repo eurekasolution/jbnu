@@ -23,6 +23,20 @@ create table sensor_table (
 );
 
 
+
+오늘 할 일은 데이터 크롤링입니다.
+7:00 정각에 시작하겠습니다.
+
+
+
+Data Crawling 
+자동 수집..
+http://www.auction.co.kr
+
+1. PHP, WEB Program... : Curl : Client URL
+2. PyThon 
+
+
 notebook git test
 
 1. 홈페이지와 DB 연결하는 코드는 배포를 하고, 설명만 하면 될 것 같습니다.
