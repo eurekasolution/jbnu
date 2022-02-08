@@ -1,0 +1,12 @@
+{
+  "nodes": [
+    {"id": "홍길동", "group": 1},
+    {"id": "이순신", "group": 1},
+    {"id": "정약용", "group": 1},
+    {"id": "송시열", "group": 1}
+  ],
+  "links": [
+    {"source": "홍길동", "target": "이순신", "value": 1},
+    {"source": "정약용", "target": "송시열", "value": 8}
+  ]
+}
