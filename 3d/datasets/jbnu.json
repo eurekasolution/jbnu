@@ -2,11 +2,17 @@
   "nodes": [
     {"id": "홍길동", "group": 1},
     {"id": "이순신", "group": 1},
-    {"id": "정약용", "group": 1},
-    {"id": "송시열", "group": 1}
+    {"id": "정약용", "group": 3},
+    {"id": "송시열", "group": 3},
+    {"id": "곽영태", "group": 2},
+    {"id": "강감찬", "group": 2}
+
   ],
   "links": [
     {"source": "홍길동", "target": "이순신", "value": 1},
-    {"source": "정약용", "target": "송시열", "value": 8}
+    {"source": "정약용", "target": "송시열", "value": 8},
+    {"source": "정약용", "target": "곽영태", "value": 8},
+    {"source": "정약용", "target": "강감찬", "value": 8},
+    {"source": "홍길동", "target": "강감찬", "value": 8}
   ]
 }
