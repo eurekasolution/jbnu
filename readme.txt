@@ -25,7 +25,14 @@ create table sensor_table (
 
 2022-02-09
 
+오늘 공부할 내용은 3d 그래프 만들기입니다.
+하나씩 천천히 공부를 해 보면 좋은데,,
+이를 위해서 
 
+http://d3js.org  를 먼저 한번 구경하시면 도움이 됩니다.
+
+
+http://localhost/3d/html-nodes/
 
 
 
