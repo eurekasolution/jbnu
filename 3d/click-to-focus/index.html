@@ -13,9 +13,9 @@
 
     const Graph = ForceGraph3D()
       (elem)
-        .jsonUrl('../datasets/miserables.json')
+        .jsonUrl('../datasets/jbnu.json')
         .nodeLabel('id')
-        .nodeAutoColorBy('group')
+        .nodeAutoColorBy('id')
         .onNodeClick(node => {
           // Aim at node from outside it
           const distance = 40;
@@ -24,7 +24,7 @@
           Graph.cameraPosition(
             { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
             node, // lookAt ({ x, y, z })
-            3000  // ms transition duration
+            7000  // ms transition duration
           );
         });
   </script>
