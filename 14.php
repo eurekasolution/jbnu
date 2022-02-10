@@ -9,6 +9,9 @@
 
     // http://localhost/01.php
 
+    $jsonFile = "covid.json";
+    // 혹시 jsonFile 이 존재하면 삭제하고,
+    // jsonFile을 새로 무조건 만들어라.
 
 ?>
 
@@ -32,7 +35,7 @@
 <?php
     if(isset($mode) and $mode == "make")
     {
-        echo "do make json";
+        //echo "do make json";
 /*
         // "id" : "1234", "ages":30, "day":"2021-12-31"
 
@@ -54,6 +57,12 @@
     {"source": "홍길동", "target": "강감찬", "value": 8}
   ]
 }
+
+ 7 <-- 6
+ 8 <-- 6
+ 9 <-- 7
+
+
 */
 
         $sql = "select * from covid ";
@@ -76,11 +85,54 @@
                 $nodeMark = ",";
 
             $nodesData = " $nodesData $nodeMark {\"id\" : \"$id\" , \"ages\":\"$ages\", \"day\":\"$day\"}  ";
+
+            $src = $data["source"];
+            $tSql = "select * from covid where target='$src' ";
+            $tResult = mysqli_query($conn, $tSql);
+            $tData = mysqli_fetch_array($tResult);
+            if($tData)
+            {
+                // 다음 페치에서 넣어줄 거니까, 나는 무시.   
+            }else
+            {
+                $id = $src;
+                $ages = "";
+                $day = "";
+
+                
+                $nodesData = " $nodesData , {\"id\" : \"$id\" , \"ages\":\"$ages\", \"day\":\"$day\"}  ";
+            }
+
+
+
             $data = mysqli_fetch_array($result);
 
         }
 
-        echo "$nodesData";
+        echo "Making Node OK.....<br>";
+
+
+        $sql = "select * from covid ";
+        $result = mysqli_query($conn, $sql);
+        $data = mysqli_fetch_array($result);
+    
+        while($data)
+        {
+            $target = $data["target"];
+            $source = $data["source"];
+            $day = $data["day"];
+            
+            if($linksData == "")
+                $linkMark = "";
+            else
+                $linkMark = ",";
+
+            $linksData = " $linksData $linkMark {\"source\" : \"$source\" , \"target\":\"$target\", \"day\":\"$day\"}  ";
+   
+            $data = mysqli_fetch_array($result);
+        }
+
+        echo "Making Link OK.....<br>";
 
     }
 ?>
