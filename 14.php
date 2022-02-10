@@ -110,7 +110,7 @@
         }
 
         echo "Making Node OK.....<br>";
-
+        //echo "$nodesData <br>";
 
         $sql = "select * from covid ";
         $result = mysqli_query($conn, $sql);
@@ -133,6 +133,39 @@
         }
 
         echo "Making Link OK.....<br>";
+
+        // 01. 기존의 JSON파일 있으면 무조건 삭제..
+        //      $jsonFile
+        //      file delete : unlink()
+        if(file_exists($jsonFile))
+        {
+            unlink($jsonFile);
+            echo "Delete $jsonFile OK<br>";
+        }
+        /*
+            파일의 맨 앞에 
+            {
+                "nodes": [
+            추가한다.
+
+             ],
+  "links": [
+        */
+
+        $jsonfp = fopen($jsonFile, "a");
+        fwrite($jsonfp, "{ \n \"nodes\": [   ");
+        $len = strlen($nodesData);
+        echo "len = $len<br>";
+        $code = fwrite($jsonfp, $nodesData );
+        fflush($jsonfp);
+        echo "code = $code<br>";
+        fwrite($jsonfp, "],\n \"links\":[  ");
+        fwrite($jsonfp, "$linksData");
+        fflush($jsonfp);
+        fwrite($jsonfp, "]\n}");
+        fclose($jsonfp);
+
+        echo "Make JSON File ($jsonFile) OK<br>";
 
     }
 ?>
