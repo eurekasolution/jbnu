@@ -33,6 +33,55 @@
     if(isset($mode) and $mode == "make")
     {
         echo "do make json";
+/*
+        // "id" : "1234", "ages":30, "day":"2021-12-31"
+
+{
+  "nodes": [
+    {"id": "홍길동", "group": 1}
+    ,{"id": "이순신", "group": 1},
+    {"id": "정약용", "group": 3},
+    {"id": "송시열", "group": 3},
+    {"id": "곽영태", "group": 2},
+    {"id": "강감찬", "group": 2}
+
+  ],
+  "links": [
+    {"source": "홍길동", "target": "이순신", "value": 1},
+    {"source": "정약용", "target": "송시열", "value": 8},
+    {"source": "정약용", "target": "곽영태", "value": 8},
+    {"source": "정약용", "target": "강감찬", "value": 8},
+    {"source": "홍길동", "target": "강감찬", "value": 8}
+  ]
+}
+*/
+
+        $sql = "select * from covid ";
+        $result = mysqli_query($conn, $sql);
+        $data = mysqli_fetch_array($result);
+
+        $nodesData = "";
+        $linksData = "";
+
+        while($data)
+        {
+            //{"id": "홍길동", "group": 1},
+            $id = $data["target"];
+            $ages = $data["ages"];
+            $day = $data["day"];
+            
+            if($nodesData == "")
+                $nodeMark = "";
+            else
+                $nodeMark = ",";
+
+            $nodesData = " $nodesData $nodeMark {\"id\" : \"$id\" , \"ages\":\"$ages\", \"day\":\"$day\"}  ";
+            $data = mysqli_fetch_array($result);
+
+        }
+
+        echo "$nodesData";
+
     }
 ?>
 
