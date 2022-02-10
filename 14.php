@@ -162,6 +162,7 @@
         fwrite($jsonfp, "],\n \"links\":[  ");
         fwrite($jsonfp, "$linksData");
         fflush($jsonfp);
+
         fwrite($jsonfp, "]\n}");
         fclose($jsonfp);
 
