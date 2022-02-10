@@ -26,6 +26,8 @@ create table sensor_table (
 
 코로나 데이터의 3d 시각화
 
+a-b : network graph, sankey chart
+
 
 2022-02-09
 
