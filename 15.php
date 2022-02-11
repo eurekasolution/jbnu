@@ -75,14 +75,14 @@
 
                 // 커서를 상세주소 필드로 이동한다.
                 // 커서를 이동시켜서 깜빡이게끔 한다.
-                var geocoder = new daum.maps.services.geocoder();
+                var geocoder = new daum.maps.services.Geocoder();
                 var callback = function(result, status) {
                     var f = document.zipForm;
 
                     if(status == daum.maps.services.Status.OK)
                     {
                         document.getElementById('lon').value = result[0].x;
-                        document.getelementById('lat').value = result[0].y;
+                        document.getElementById('lat').value = result[0].y;
                     }else
                     {
                         alert('Error Kakao Map API ...');
