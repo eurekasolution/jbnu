@@ -29,6 +29,29 @@
 	</head> 
 <body>
 
+<?php
+/*
+    create table addr_table(
+        idx int(10) auto_increment,
+        address char(255),
+        zipcode char(10),
+        lat     char(20),
+        lon     char(20),
+
+        primary key(idx)
+
+    );
+
+    if(isset($lat) and isset($lon))
+    {
+        // addr_table // address, zip, lat, lon
+        $sql = "insert into addr_table (address, zipcode, lat, lon) values
+                ('$address', '$zipcode', '$lat', '$lon')";
+        $result = mysqli_query($conn, $sql);
+    }
+*/
+?>
+
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac7131c6dc3ae47ddf0640fa7994275f&libraries=services"> </script>
@@ -104,7 +127,7 @@
 
 
 
-<form name=zipForm method=post action='<?php echo $PHP_SELF ?>' onSubmit="return checkError()">
+<form name=zipForm method=post action='<?php echo $PHP_SELF ?>' >
 <div class='row rowLine'>
     <div class='col-2 col-sm-2'>명칭</div>
         <div class='col-4 col-sm-4'>
@@ -139,6 +162,8 @@
         </div>
         
     </div>
+
+    <button type="submit" class="btn btn-primary">저장하기</button>
 </form><br><br>
 
  
